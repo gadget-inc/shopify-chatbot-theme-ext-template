@@ -1,0 +1,53 @@
+<script src="https://product-chatbot-take2--development.gadget.app/api/client/web.min.js" defer="defer"></script>
+<script src="{{ 'purify.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'chatbot.js' | asset_url }}" defer="defer"></script>
+{{ 'chatbot.css' | asset_url | stylesheet_tag }}
+
+<div id="chatbot-toggle" style="bottom: {{ block.settings.toggle_bottom }}; top: {{ block.settings.toggle_top }}; right: {{ block.settings.toggle_right }}; left: {{ block.settings.toggle_left }}">
+  <img id="chatbot-open-toggle" src="{{ "gizmo.png" | asset_img_url: 'large' }}" height="50" width="50" loading="lazy">
+  <img id="chatbot-close-toggle" class="hidden" src="{{ "close.png" | asset_img_url: 'large' }}" height="35" width="35" loading="eager">
+</div>
+<div id="chatbot-window">
+  <div id="chat">
+    <p>
+      {{ "chatbot.welcome.label" | t }}
+    </p>
+  </div>
+  <form id="chat-form">
+    <input name="chatInput" autocomplete="off"/>
+    <button name="chatButton" type="submit">Send</button>
+  </form>
+</div>
+
+{% schema %}
+{
+  "name": "Gadget chatbot",
+  "target": "body",
+  "settings": [
+    {
+      "type": "text",
+      "label": "bottom",
+      "id": "toggle_bottom",
+      "default": "10px"
+    },
+    {
+      "type": "text",
+      "label": "top",
+      "id": "toggle_top",
+      "default": "auto"
+    },
+    {
+      "type": "text",
+      "label": "left",
+      "id": "toggle_left",
+      "default": "auto"
+    },
+    {
+      "type": "text",
+      "label": "right",
+      "id": "toggle_right",
+      "default": "10px"
+    }
+  ]
+}
+{% endschema %}

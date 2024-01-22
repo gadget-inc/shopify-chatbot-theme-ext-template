@@ -1,0 +1,25 @@
+{
+  "name": "chatbot",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "scripts": {
+    "shopify": "shopify",
+    "build": "shopify app build",
+    "dev": "shopify app dev",
+    "info": "shopify app info",
+    "generate": "shopify app generate",
+    "deploy": "shopify app deploy"
+  },
+  "dependencies": {
+    "@shopify/app": "3.53.0",
+    "@shopify/cli": "3.53.0"
+  },
+  "trustedDependencies": [
+    "@shopify/plugin-cloudflare"
+  ],
+  "author": "gadget",
+  "private": true,
+  "workspaces": [
+    "extensions/*"
+  ]
+}
