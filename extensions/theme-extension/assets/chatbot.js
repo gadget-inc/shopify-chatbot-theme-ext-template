@@ -1,7 +1,7 @@
-// initialize an API client object
-const api = new Gadget();
-
 document.addEventListener("DOMContentLoaded", function () {
+  // initialize an API client object
+  const chatbotApi = new Gadget();
+
   // dom elements for chatbot
   const chatbotWindow = document.getElementById("chatbot-window");
   const chat = document.getElementById("chat");
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     chat.appendChild(chatbotThinking);
 
     // call Gadget /chat HTTP route with stream option
-    const response = await api.fetch("/chat", {
+    const response = await chatbotApi.fetch("/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
